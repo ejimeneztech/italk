@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ButtonReady from "../components/ButtonReady";
+import Ready from "../components/Ready";
 
 export default function Home() {
   const [data, setData] = useState(null);
@@ -15,5 +15,5 @@ export default function Home() {
       });
   }, []);
 
-  return !data ? "Loading" : <ButtonReady data={data} />;
+  return !data ? "Loading" : <Ready data={data} />;
 }
