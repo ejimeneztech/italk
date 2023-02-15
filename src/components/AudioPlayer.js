@@ -14,9 +14,9 @@ export default function AudioPlayer(props) {
  
 
   return (
-    <div>
+    
       <audio ref={audioRef} src={props.source}></audio>
 
-    </div>
+    
   );
 }

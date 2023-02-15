@@ -27,6 +27,7 @@ export default function Ready(props) {
             onClick={onClickHandler}
             value={item.text}
             url={item.url}
+            img={item.img_url}
           />
         ))}
       </Container>
