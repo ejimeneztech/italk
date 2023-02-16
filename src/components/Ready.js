@@ -28,6 +28,7 @@ export default function Ready(props) {
             value={item.text}
             url={item.url}
             img={item.img_url}
+            name={item.name}
           />
         ))}
       </Container>
