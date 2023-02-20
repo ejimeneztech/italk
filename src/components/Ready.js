@@ -4,6 +4,7 @@ import AudioPlayer from "./AudioPlayer";
 import Container from "./Container";
 import ButtonReady from "./ButtonReady";
 
+
 export default function Ready(props) {
   const [text, setText] = useState("");
   const [audioSource, setAudioSource] = useState("");
@@ -16,10 +17,12 @@ export default function Ready(props) {
     
   };
 
+
+
   return (
     <div>
       <br></br>
-      <Textbox text={text} />
+      <Textbox text={text} clear={onClickHandler}/>
       <AudioPlayer source={audioSource} />
       <br></br>
       <Container>
