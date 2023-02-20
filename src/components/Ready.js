@@ -4,7 +4,6 @@ import AudioPlayer from "./AudioPlayer";
 import Container from "./Container";
 import ButtonReady from "./ButtonReady";
 
-
 export default function Ready(props) {
   const [text, setText] = useState("");
   const [audioSource, setAudioSource] = useState("");
@@ -14,15 +13,17 @@ export default function Ready(props) {
     const newText = event.target.dataset.value2;
     setAudioSource(newAudio);
     setText(newText);
-    
   };
 
-
+  const clearButtonHandler = () => {
+    setAudioSource("");
+    setText("");
+  };
 
   return (
     <div>
       <br></br>
-      <Textbox text={text} clear={onClickHandler}/>
+      <Textbox text={text} clear={clearButtonHandler} />
       <AudioPlayer source={audioSource} />
       <br></br>
       <Container>
