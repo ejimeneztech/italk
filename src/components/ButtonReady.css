@@ -1,19 +1,26 @@
-.button {
+.touch {
   
-  border: none;
-  color: white;
-  padding: 40px;
-  text-align: center;
-  text-decoration: none;
-  display: flex;
+  display: inline-block;
+  padding: 10px 20px;
   font-size: 16px;
-  margin: 10px;
-  border-radius: 25px;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+  background-color: #007bff;
+  border-radius: 5px;
+  cursor: pointer;
+  user-select: none;
   
 }
 
 
+.touch:hover {
+  background-color: #0062cc;
+}
 
+.touch:active {
+  background-color: #005cbf;
+}
   
   img {
     width: 100%;
@@ -22,7 +29,7 @@
     
   }
 
-  .button-text {
+  .touch-text {
     /* position: absolute; */
     bottom: 0;
     /* width: 100%; */

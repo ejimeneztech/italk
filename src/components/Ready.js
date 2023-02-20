@@ -9,10 +9,11 @@ export default function Ready(props) {
   const [audioSource, setAudioSource] = useState("");
 
   const onClickHandler = (event) => {
-    const newText = event.target.value;
     const newAudio = event.target.dataset.value1;
-    setText(newText);
+    const newText = event.target.dataset.value2;
     setAudioSource(newAudio);
+    setText(newText);
+    
   };
 
   return (

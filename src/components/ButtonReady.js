@@ -1,10 +1,16 @@
 import "./ButtonReady.css";
 export default function ButtonReady(props) {
   return (
-    <button onClick={props.onClick} value={props.value} data-value1={props.url}>
+    <div className="touch">
       <div>
-      <img src={props.img}></img> </div>
-      <span className="button-text">{props.name}</span>
-    </button>
+        <img
+          src={props.img}
+          onClick={props.onClick}
+          data-value1={props.url}
+          data-value2={props.value}
+        ></img>{" "}
+      </div>
+      <span className="touch-text">{props.name}</span>
+    </div>
   );
 }
