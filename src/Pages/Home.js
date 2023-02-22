@@ -15,5 +15,6 @@ export default function Home() {
       });
   }, []);
 
+  console.log(data)
   return !data ? "Loading" : <Ready data={data} />;
 }
