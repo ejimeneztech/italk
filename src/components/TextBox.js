@@ -3,9 +3,9 @@ import ClearButton from "./ClearButton";
 
 export default function Textbox(props) {
   return (
-    <div className="text-box">
-      {props.text}
-      <ClearButton onClick={props.clear}/>
+    <div>
+      <div className="text-box">{props.text}</div>
+      <ClearButton onClick={props.clear} />
     </div>
   );
 }

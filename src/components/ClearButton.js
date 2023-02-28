@@ -1,9 +1,5 @@
-export default function ClearButton(props){
+import "./ClearButton.css";
 
-
-    return (
-        <button type="button" className="btn btn-default btn-sm" onClick={props.onClick}>
-          <span className="glyphicon glyphicon-remove"></span> Remove 
-        </button>
-    );
+export default function ClearButton(props) {
+  return <button className="gg-close" onClick={props.onClick}></button>;
 }
