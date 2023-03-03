@@ -1,12 +1,4 @@
 .text-box {
-    /* background-color: rgba(128, 128, 128, 0.5);
-    padding-top: 20px;
-    border-radius: 25px;
-    text-align: center;
-    width: 75%; */
-    /* box-shadow: 0px 2px 2px #000000;; */
-
-
     border: none;
     border-radius: 5px;
     padding: 10px;
@@ -18,6 +10,15 @@
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
+    min-height: 15px; /* set a minimum height value */
     
   }
 
+
+  @media screen and (max-width: 768px) {
+    .text-box {
+      font-size: 14px;
+      padding: 8px;
+      max-width: 320px;
+    }
+  }
