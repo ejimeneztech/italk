@@ -6,20 +6,23 @@
   font-weight: bold;
   text-align: center;
   color: #fff;
-  background-color: #007bff;
+  background-color: rgba(65, 105, 225, 0.5);;
   border-radius: 5px;
   cursor: pointer;
   user-select: none;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   
 }
 
 
 .touch:hover {
-  background-color: #0062cc;
+  background-color: #7FFFD4;
+  color: black;
 }
 
 .touch:active {
-  background-color: #005cbf;
+  background-color: #7FFFD4;
+  color: black;
 }
   
   img {

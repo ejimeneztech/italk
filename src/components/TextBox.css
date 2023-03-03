@@ -11,6 +11,7 @@
     max-width: 400px;
     margin: 0 auto;
     min-height: 15px; /* set a minimum height value */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     
   }
 
