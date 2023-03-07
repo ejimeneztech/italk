@@ -3,9 +3,11 @@ import Textbox from "./TextBox";
 import AudioPlayer from "./AudioPlayer";
 import Container from "./Container";
 import ButtonReady from "./ButtonReady";
+import ModalWrapper from "./ModalWrapper";
 import Section1 from "./Sections/Section1";
 import Section2 from "./Sections/Section2";
 import Section3 from "./Sections/Section3";
+
 
 export default function Ready(props) {
   const [text, setText] = useState("");
@@ -29,6 +31,7 @@ export default function Ready(props) {
       <Textbox text={text} clear={clearButtonHandler} />
       <AudioPlayer source={audioSource} />
       <br></br>
+      <ModalWrapper/>
       <Container>
         <Section1>
           {props.data.aboutMe.map((item) => (
@@ -40,7 +43,7 @@ export default function Ready(props) {
               name={item.name}
             />
           ))}
-       </Section1>
+        </Section1>
 
         <Section2>
           {props.data.neccessities.map((item) => (
