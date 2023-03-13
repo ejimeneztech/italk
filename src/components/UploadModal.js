@@ -23,10 +23,20 @@ export default function UploadModal(props) {
     setEnteredTag(event.target.value);
   };
 
-
-  const handleSubmit = () => {
-    console.log("Button was clicked");
-  }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const newButtonData = {
+      voice: enteredVoice,
+      text: enteredText,
+      name: enteredName,
+      tag: enteredTag,
+    };
+    console.log(newButtonData);
+    setEnteredVoice("");
+    setEnteredText("");
+    setEnteredName("");
+    setEnteredTag("");
+  };
 
   return (
     <div className="modal">
@@ -75,7 +85,9 @@ export default function UploadModal(props) {
           onChange={tagChangeHandler}
         />
       </div>
-      <button type="submit" onClick={handleSubmit}>Submit</button>
+      <button type="submit" onClick={handleSubmit}>
+        Submit
+      </button>
     </div>
   );
 }
