@@ -5,7 +5,7 @@ export default function UploadModal(props) {
   const [enteredVoice, setEnteredVoice] = useState("Matthew");
   const [enteredText, setEnteredText] = useState("");
   const [enteredName, setEnteredName] = useState("");
-  const [enteredTag, setEnteredTag] = useState("");
+  const [enteredTag, setEnteredTag] = useState("activities");
 
   const selectVoiceHandler = (event) => {
     setEnteredVoice(event.target.value);
@@ -19,7 +19,7 @@ export default function UploadModal(props) {
     setEnteredName(event.target.value);
   };
 
-  const tagChangeHandler = (event) => {
+  const selectTagHandler = (event) => {
     setEnteredTag(event.target.value);
   };
 
@@ -75,15 +75,13 @@ export default function UploadModal(props) {
           onChange={nameChangeHandler}
         />
       </div>
-      <div className="input__field">
-        <label>Tag: </label>
-        <input
-          type="string"
-          min="0.01"
-          step="0.01"
-          value={enteredTag}
-          onChange={tagChangeHandler}
-        />
+      <div className="input__dropdown">
+        <label>Select Tag: </label>
+        <select value={enteredTag} onChange={selectTagHandler}>
+          <option value="activities">activities</option>
+          <option value="neccessities">neccessities</option>
+          <option value="aboutMe">aboutMe</option>
+        </select>
       </div>
       <button type="submit" onClick={handleSubmit}>
         Submit
