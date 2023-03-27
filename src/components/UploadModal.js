@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./UploadModal.css";
 
 export default function UploadModal(props) {
@@ -6,6 +6,7 @@ export default function UploadModal(props) {
   const [enteredText, setEnteredText] = useState("");
   const [enteredName, setEnteredName] = useState("");
   const [enteredTag, setEnteredTag] = useState("activities");
+  const [selectedFile, setSelectedFile] = useState(null);
 
   const selectVoiceHandler = (event) => {
     setEnteredVoice(event.target.value);
@@ -23,7 +24,16 @@ export default function UploadModal(props) {
     setEnteredTag(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleFileSelect = (event) => {
+    setSelectedFile(event.target.files[0]);
+  }
+
+  const HandleSubmit = (event) => {
+    const NEW_BUTTON_ENDPOINT =
+      "https://q6j8s8rwj1.execute-api.us-west-2.amazonaws.com/dev/aac-new-post";
+
+    const IMAGE_UPLOAD_ENDPOINT = "https://q6j8s8rwj1.execute-api.us-west-2.amazonaws.com/dev/aac-upload-image";
+
     event.preventDefault();
     const newButtonData = {
       voice: enteredVoice,
@@ -31,11 +41,32 @@ export default function UploadModal(props) {
       name: enteredName,
       tag: enteredTag,
     };
-    console.log(newButtonData);
+
+
+    
+      fetch(NEW_BUTTON_ENDPOINT, {
+        method: "POST",
+
+        body: JSON.stringify(newButtonData),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          // fetch(IMAGE_UPLOAD_ENDPOINT, {
+          //   method: "POST",
+
+          //   body: JSON.stringify(data),
+          // })
+          // .then((url) => url.json())
+          console.log(data);
+        });
+
+
+
     setEnteredVoice("");
     setEnteredText("");
     setEnteredName("");
     setEnteredTag("");
+    setSelectedFile(null);
   };
 
   return (
@@ -58,7 +89,7 @@ export default function UploadModal(props) {
       <div className="input__field">
         <label>Enter text to speak: </label>
         <input
-          type="string"
+          type="text"
           min="0.01"
           step="0.01"
           value={enteredText}
@@ -83,7 +114,17 @@ export default function UploadModal(props) {
           <option value="aboutMe">aboutMe</option>
         </select>
       </div>
-      <button type="submit" onClick={handleSubmit}>
+      <div className="input__field">
+        <label>Image:</label>
+        <input
+          type="file"
+          min="0.01"
+          step="0.01"
+          // value={selectedFile}
+          onChange={handleFileSelect}
+        />
+      </div>
+      <button type="submit" onClick={HandleSubmit}>
         Submit
       </button>
     </div>
