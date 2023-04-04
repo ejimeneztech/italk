@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./UploadModal.css";
 
-
 export default function UploadModal(props) {
   const [enteredVoice, setEnteredVoice] = useState("Matthew");
   const [enteredText, setEnteredText] = useState("");
@@ -27,16 +26,15 @@ export default function UploadModal(props) {
 
   const handleFileSelect = (event) => {
     setSelectedFile(event.target.files[0]);
-    
   };
 
   const HandleSubmit = (event) => {
     const NEW_BUTTON_ENDPOINT =
       "https://q6j8s8rwj1.execute-api.us-west-2.amazonaws.com/dev/aac-new-post";
-  
+
     const IMAGE_UPLOAD_ENDPOINT =
       "https://q6j8s8rwj1.execute-api.us-west-2.amazonaws.com/dev/aac-upload-image";
-  
+
     event.preventDefault();
     const newButtonData = {
       voice: enteredVoice,
@@ -44,7 +42,6 @@ export default function UploadModal(props) {
       name: enteredName,
       tag: enteredTag,
     };
-  
 
     fetch(NEW_BUTTON_ENDPOINT, {
       method: "POST",
@@ -63,21 +60,20 @@ export default function UploadModal(props) {
           .then((presignedUrl) => presignedUrl.json())
           .then((data2) => {
             const modUrl = data2["url"];
-            // const url = modUrl.replace(/&.*?(?=&Expires)/, "");
-            const url2 = modUrl.replace(/AWSAccessKeyId.*?(?=&Expires)/, "");
-            console.log(url2);
-            console.log(selectedFile);
-            fetch(url2, {
+            const url = modUrl.replace(/&.*?(?=&Expires)/, "");
+
+            fetch(url, {
               method: "PUT",
-              
+
               headers: {
-                'Content-Type': "image/jpeg",
+                "Content-Type": selectedFile.type,
+                "Content-Length": selectedFile.size,
               },
               body: selectedFile,
             });
           });
       });
-  
+
     setEnteredVoice("");
     setEnteredText("");
     setEnteredName("");
