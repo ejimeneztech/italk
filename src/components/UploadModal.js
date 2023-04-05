@@ -43,12 +43,14 @@ export default function UploadModal(props) {
       tag: enteredTag,
     };
 
+    
     fetch(NEW_BUTTON_ENDPOINT, {
       method: "POST",
       body: JSON.stringify(newButtonData),
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         const key = `${data}.jpeg`;
         const sendName = {
           name: key,
@@ -68,6 +70,7 @@ export default function UploadModal(props) {
               headers: {
                 "Content-Type": selectedFile.type,
                 "Content-Length": selectedFile.size,
+                "Authorization": modUrl,
               },
               body: selectedFile,
             });
