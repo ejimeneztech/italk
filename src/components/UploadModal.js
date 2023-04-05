@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./UploadModal.css";
+import AWS from "aws-sdk";
 
 export default function UploadModal(props) {
   const [enteredVoice, setEnteredVoice] = useState("Matthew");
@@ -43,7 +44,6 @@ export default function UploadModal(props) {
       tag: enteredTag,
     };
 
-    
     fetch(NEW_BUTTON_ENDPOINT, {
       method: "POST",
       body: JSON.stringify(newButtonData),
@@ -52,29 +52,36 @@ export default function UploadModal(props) {
       .then((data) => {
         console.log(data);
         const key = `${data}.jpeg`;
-        const sendName = {
-          name: key,
+
+        const bucketName = "postreader-source";
+        const region = "us-west-2";
+        const accessKeyId = "AKIAROCL73IT5VDDQZEH";
+        const secretAccessKey = "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";
+
+        AWS.config.update({
+          accessKeyId,
+          secretAccessKey,
+          region,
+        });
+
+        const s3 = new AWS.S3({
+          apiVersion: "2006-03-01",
+          params: { Bucket: bucketName },
+        });
+
+        const params = {
+          Key: key,
+          Body: selectedFile,
+          ContentType: selectedFile.type,
         };
-        fetch(IMAGE_UPLOAD_ENDPOINT, {
-          method: "POST",
-          body: JSON.stringify(sendName),
-        })
-          .then((presignedUrl) => presignedUrl.json())
-          .then((data2) => {
-            const modUrl = data2["url"];
-            const url = modUrl.replace(/&.*?(?=&Expires)/, "");
 
-            fetch(url, {
-              method: "PUT",
-
-              headers: {
-                "Content-Type": selectedFile.type,
-                "Content-Length": selectedFile.size,
-                "Authorization": modUrl,
-              },
-              body: selectedFile,
-            });
-          });
+        s3.upload(params, (err, data) => {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log("File uploaded successfully:", data.Location);
+          }
+        });
       });
 
     setEnteredVoice("");
