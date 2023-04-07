@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./UploadModal.css";
 import AWS from "aws-sdk";
 
@@ -33,8 +33,11 @@ export default function UploadModal(props) {
     const NEW_BUTTON_ENDPOINT =
       "https://q6j8s8rwj1.execute-api.us-west-2.amazonaws.com/dev/aac-new-post";
 
-    const IMAGE_UPLOAD_ENDPOINT =
-      "https://q6j8s8rwj1.execute-api.us-west-2.amazonaws.com/dev/aac-upload-image";
+    // const IMAGE_UPLOAD_ENDPOINT =
+    //   "https://q6j8s8rwj1.execute-api.us-west-2.amazonaws.com/dev/aac-upload-image";
+
+    // const POSTS_ENDPOINT =
+    //   "https://q6j8s8rwj1.execute-api.us-west-2.amazonaws.com/dev/aac-get-post";
 
     event.preventDefault();
     const newButtonData = {
@@ -83,6 +86,13 @@ export default function UploadModal(props) {
           }
         });
       });
+      // .then(
+      //   fetch(POSTS_ENDPOINT)
+      //     .then((res) => res.json())
+      //     .then((data) => {
+      //       setData(data);
+      //     })
+      // );
 
     setEnteredVoice("");
     setEnteredText("");

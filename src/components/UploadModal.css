@@ -1,6 +1,6 @@
 .modal {
   position: fixed;
-  top: calc(50% - 150px); /* move the modal up by 100 pixels */
+  top: calc(50% - 100px); /* move the modal up by 100 pixels */
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
@@ -11,6 +11,7 @@
   height: 60%;
   max-height: 500px;
   overflow: auto;
+  border-radius: 10px;
   }
 
   .modal-header {
