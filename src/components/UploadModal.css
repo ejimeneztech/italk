@@ -1,64 +1,61 @@
 .modal {
-  position: fixed;
-  top: calc(50% - 100px); /* move the modal up by 100 pixels */
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  padding: 20px;
-  z-index: 100;
-  width: 80%;
-  max-width: 600px;
-  height: 60%;
-  max-height: 500px;
-  overflow: auto;
-  border-radius: 10px;
-  }
+  /* Center the modal in the middle of the screen */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 
-  .modal-header {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 10px;
-  
-  }
-
-  .close-button {
-    background-color: transparent;
-    border: none;
-    color: #000;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 99;
-  }
-  
-
-
-  label {
-    font-weight: bold;
-    font-size: 15px;
-    text-align: center;
-  }
-
-  input[type="text"],
-input[type="email"],
-input[type="string"],
-textarea { 
-  
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-bottom: 20px;
-  font-size: 16px;
-  text-align: right; /* set the text-align property to right */
-  
 }
+
+.modal-container {
+  /* Style for the container that wraps the modal */
+  margin-top: 25px;
+  position: relative; /* Update the position to relative */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white; /* Semi-transparent background */
+  width: 80%; /* Set the width of the modal container to 80% of the viewport */
+  height: 40%; /* Set the height of the modal container to 80% of the viewport */
+  margin: 0 auto; /* Center the modal container horizontally */
+  border-radius: 15px;
+}
+
+.modal-container label {
+  /* Style for the labels inside the modal container */
+  display: block;
+  margin-bottom: 0.5rem; /* Add some spacing between the label and the input field */
+}
+
+.modal-container select,
+.modal-container input {
+  /* Style for the input fields inside the modal container */
+  width: 100%; /* Make the input fields take up the full width of the container */
+  padding: 0.5rem; /* Add some padding to the input fields */
+  margin-bottom: 1rem; /* Add some spacing between the input fields */
+}
+
+.close-button {
+  /* Style for the close button */
+  background-color: transparent;
+  border: none;
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute; /* Update the position to absolute */
+  top: 10px; /* Adjust the top position to position the button at the top of the modal */
+  right: 10px; /* Adjust the right position to position the button at the right of the modal */
+  border-radius: 50%; /* Make the button round */
+  width: 30px; /* Set the width of the button */
+  height: 30px; /* Set the height of the button */
+  z-index: 1; /* Add a z-index to ensure the button is positioned above the modal content */
+}
+
+
+
+
+
+
+

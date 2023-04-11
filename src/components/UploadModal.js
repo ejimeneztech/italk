@@ -102,6 +102,7 @@ export default function UploadModal(props) {
   };
 
   return (
+    <div className="modal-container">
     <div className="modal">
       <div className="modal-header">
         <button className="close-button" onClick={props.onClose}>
@@ -147,7 +148,7 @@ export default function UploadModal(props) {
         </select>
       </div>
       <div className="input__field">
-        <label>Image:</label>
+        <label>Add Image:</label>
         <input
           type="file"
           min="0.01"
@@ -159,6 +160,7 @@ export default function UploadModal(props) {
       <button type="submit" onClick={HandleSubmit}>
         Submit
       </button>
+    </div>
     </div>
   );
 }

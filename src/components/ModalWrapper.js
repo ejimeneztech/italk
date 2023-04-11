@@ -16,7 +16,7 @@ export default function PlusButton(props) {
   return (
     <div>
       <button className="w3-button" onClick={handleOpenModal}>+</button>
-      {showModal && <UploadModal title="Create Button" message="test" onClose={handleCloseModal}/>}
+      {showModal && <UploadModal title="Create Button"  onClose={handleCloseModal}/>}
     </div>
   );
 }
