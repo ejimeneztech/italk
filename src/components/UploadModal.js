@@ -32,12 +32,7 @@ export default function UploadModal(props) {
   const HandleSubmit = (event) => {
     const NEW_BUTTON_ENDPOINT =
       "https://q6j8s8rwj1.execute-api.us-west-2.amazonaws.com/dev/aac-new-post";
-
-    // const IMAGE_UPLOAD_ENDPOINT =
-    //   "https://q6j8s8rwj1.execute-api.us-west-2.amazonaws.com/dev/aac-upload-image";
-
-    // const POSTS_ENDPOINT =
-    //   "https://q6j8s8rwj1.execute-api.us-west-2.amazonaws.com/dev/aac-get-post";
+   
 
     event.preventDefault();
     const newButtonData = {
@@ -83,16 +78,10 @@ export default function UploadModal(props) {
             console.log(err);
           } else {
             console.log("File uploaded successfully:", data.Location);
+            props.onSubmit();
           }
         });
       });
-    // .then(
-    //   fetch(POSTS_ENDPOINT)
-    //     .then((res) => res.json())
-    //     .then((data) => {
-    //       setData(data);
-    //     })
-    // );
 
     setEnteredVoice("");
     setEnteredText("");
@@ -130,7 +119,7 @@ export default function UploadModal(props) {
           />
         </div>
         <div className="input__field">
-          <label>Name: </label>
+          <label>Button Name: </label>
           <input
             type="string"
             min="0.01"
