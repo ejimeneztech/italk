@@ -57,3 +57,10 @@
   height: 30px; /* Set the height of the button */
   z-index: 1; /* Add a z-index to ensure the button is positioned above the modal content */
 }
+
+@media (max-width: 767px) { /* Apply styles for screens with a maximum width of 767px */
+  .modal-container {
+    width: 90%; /* Set the width of the modal container to 90% of the viewport for smaller screens */
+    height: 90%; /* Set the height of the modal container to 90% of the viewport for smaller screens */
+  }
+}
