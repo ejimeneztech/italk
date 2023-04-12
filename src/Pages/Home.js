@@ -7,14 +7,17 @@ export default function Home() {
   const POSTS_ENDPOINT =
     "https://q6j8s8rwj1.execute-api.us-west-2.amazonaws.com/dev/aac-get-post";
 
-  useEffect(() => {
-    fetch(POSTS_ENDPOINT)
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data);
-      });
-  }, []);
+    const getData = () => {
+      fetch(POSTS_ENDPOINT)
+        .then((res) => res.json())
+        .then((data) => {
+          setData(data);
+        });
+    }
+  
+    useEffect(() => {
+      getData();
+    }, []);
 
-  console.log(data)
-  return !data ? "Loading" : <Ready data={data} />;
+  return !data ? "Loading" : <Ready data={data} refreshData = {getData}/>;
 }

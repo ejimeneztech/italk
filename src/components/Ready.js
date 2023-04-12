@@ -31,7 +31,7 @@ export default function Ready(props) {
       <Textbox text={text} clear={clearButtonHandler} />
       <AudioPlayer source={audioSource} />
       <br></br>
-      <ModalWrapper/>
+      <ModalWrapper refreshData={props.refreshData}/>
       <Container>
         <Section1>
           {props.data.aboutMe.map((item) => (

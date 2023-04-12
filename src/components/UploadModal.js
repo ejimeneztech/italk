@@ -32,7 +32,6 @@ export default function UploadModal(props) {
   const HandleSubmit = (event) => {
     const NEW_BUTTON_ENDPOINT =
       "https://q6j8s8rwj1.execute-api.us-west-2.amazonaws.com/dev/aac-new-post";
-   
 
     event.preventDefault();
     const newButtonData = {
@@ -78,6 +77,10 @@ export default function UploadModal(props) {
             console.log(err);
           } else {
             console.log("File uploaded successfully:", data.Location);
+
+            setTimeout(() => {
+              props.refreshData();
+            }, 2000);
             props.onSubmit();
           }
         });
