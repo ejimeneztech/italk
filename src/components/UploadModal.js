@@ -32,11 +32,22 @@ export default function UploadModal(props) {
   };
 
   const HandleSubmit = (event) => {
+    event.preventDefault();
+
+    if (
+      enteredVoice === "" ||
+      enteredText === "" ||
+      enteredName === "" ||
+      enteredTag === "" ||
+      selectedFile === null
+    ) {
+      alert("Please fill in all fields and select a file");
+      return;
+    }
     setIsLoading(true);
     const NEW_BUTTON_ENDPOINT =
       "https://q6j8s8rwj1.execute-api.us-west-2.amazonaws.com/dev/aac-new-post";
 
-    event.preventDefault();
     const newButtonData = {
       voice: enteredVoice,
       text: enteredText,
