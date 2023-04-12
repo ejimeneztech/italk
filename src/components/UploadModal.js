@@ -80,8 +80,9 @@ export default function UploadModal(props) {
 
             setTimeout(() => {
               props.refreshData();
+              props.onSubmit();
             }, 2000);
-            props.onSubmit();
+            
           }
         });
       });
