@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./UploadModal.css";
 import AWS from "aws-sdk";
+import Loader from "./Loader";
 
 export default function UploadModal(props) {
   const [enteredVoice, setEnteredVoice] = useState("Matthew");
@@ -8,6 +9,7 @@ export default function UploadModal(props) {
   const [enteredName, setEnteredName] = useState("");
   const [enteredTag, setEnteredTag] = useState("activities");
   const [selectedFile, setSelectedFile] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const selectVoiceHandler = (event) => {
     setEnteredVoice(event.target.value);
@@ -30,6 +32,7 @@ export default function UploadModal(props) {
   };
 
   const HandleSubmit = (event) => {
+    setIsLoading(true);
     const NEW_BUTTON_ENDPOINT =
       "https://q6j8s8rwj1.execute-api.us-west-2.amazonaws.com/dev/aac-new-post";
 
@@ -81,8 +84,8 @@ export default function UploadModal(props) {
             setTimeout(() => {
               props.refreshData();
               props.onSubmit();
+              setIsLoading(false);
             }, 2000);
-            
           }
         });
       });
@@ -96,64 +99,68 @@ export default function UploadModal(props) {
 
   return (
     <div className="modal-container">
-      <div className="modal">
-        <div className="modal-header">
-          <button className="close-button" onClick={props.onClose}>
-            X
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div className="modal">
+          <div className="modal-header">
+            <button className="close-button" onClick={props.onClose}>
+              X
+            </button>
+          </div>
+          <h2>{props.title}</h2>
+          <p>{props.message}</p>
+          <div className="input__dropdown">
+            <label>Select Voice: </label>
+            <select value={enteredVoice} onChange={selectVoiceHandler}>
+              <option value="Matthew">Matthew</option>
+              <option value="Joanna">Joanna</option>
+              <option value="Kevin">Kevin</option>
+            </select>
+          </div>
+          <div className="input__field">
+            <label>Enter text to speak: </label>
+            <input
+              type="text"
+              min="0.01"
+              step="0.01"
+              value={enteredText}
+              onChange={textChangeHandler}
+            />
+          </div>
+          <div className="input__field">
+            <label>Button Name: </label>
+            <input
+              type="string"
+              min="0.01"
+              step="0.01"
+              value={enteredName}
+              onChange={nameChangeHandler}
+            />
+          </div>
+          <div className="input__dropdown">
+            <label>Select Tag: </label>
+            <select value={enteredTag} onChange={selectTagHandler}>
+              <option value="activities">activities</option>
+              <option value="neccessities">neccessities</option>
+              <option value="aboutMe">aboutMe</option>
+            </select>
+          </div>
+          <div className="input__field">
+            <label>Add Image:</label>
+            <input
+              type="file"
+              min="0.01"
+              step="0.01"
+              // value={selectedFile}
+              onChange={handleFileSelect}
+            />
+          </div>
+          <button type="submit" onClick={HandleSubmit}>
+            Submit
           </button>
         </div>
-        <h2>{props.title}</h2>
-        <p>{props.message}</p>
-        <div className="input__dropdown">
-          <label>Select Voice: </label>
-          <select value={enteredVoice} onChange={selectVoiceHandler}>
-            <option value="Matthew">Matthew</option>
-            <option value="Joanna">Joanna</option>
-            <option value="Kevin">Kevin</option>
-          </select>
-        </div>
-        <div className="input__field">
-          <label>Enter text to speak: </label>
-          <input
-            type="text"
-            min="0.01"
-            step="0.01"
-            value={enteredText}
-            onChange={textChangeHandler}
-          />
-        </div>
-        <div className="input__field">
-          <label>Button Name: </label>
-          <input
-            type="string"
-            min="0.01"
-            step="0.01"
-            value={enteredName}
-            onChange={nameChangeHandler}
-          />
-        </div>
-        <div className="input__dropdown">
-          <label>Select Tag: </label>
-          <select value={enteredTag} onChange={selectTagHandler}>
-            <option value="activities">activities</option>
-            <option value="neccessities">neccessities</option>
-            <option value="aboutMe">aboutMe</option>
-          </select>
-        </div>
-        <div className="input__field">
-          <label>Add Image:</label>
-          <input
-            type="file"
-            min="0.01"
-            step="0.01"
-            // value={selectedFile}
-            onChange={handleFileSelect}
-          />
-        </div>
-        <button type="submit" onClick={HandleSubmit}>
-          Submit
-        </button>
-      </div>
+      )}
     </div>
   );
 }

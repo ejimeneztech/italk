@@ -21,7 +21,7 @@
   align-items: center;
   background-color: white; /* Semi-transparent background */
   width: 80%; /* Set the width of the modal container to 80% of the viewport */
-  height: 75%; /* Set the height of the modal container to 40% of the viewport */
+  height: 85%; /* Set the height of the modal container to 40% of the viewport */
   border-radius: 15px;
   z-index: 9999; /* Set a higher z-index value to ensure the modal is positioned on top of other elements */
   border-radius: 15px;
