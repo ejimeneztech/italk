@@ -1,19 +1,18 @@
+.container {
+  background-color: rgba(128, 128, 128, 0.5);
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* increase or decrease this value to adjust space between buttons */
+}
 
+@media only screen and (max-width: 600px) {
   .container {
-    background-color: rgba(128, 128, 128, 0.5);
-    border-radius: 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
+    flex-direction: row;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
   }
+}
 
-
-  @media only screen and (max-width: 600px) {
-    .container {
-      flex-direction: row; /* change flex direction for smaller screens */
-      justify-content: center; /* center items vertically for smaller screens */
-      padding: 20px; /* add padding for smaller screens */
-      gap: 20px; 
-    }
-  }
