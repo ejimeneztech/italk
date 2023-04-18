@@ -1,4 +1,5 @@
 import "./UploadModal.css";
+import "./ModalWrapper.css";
 import React, { useState } from "react";
 import UploadModal from "./UploadModal";
 
@@ -14,8 +15,8 @@ export default function PlusButton(props) {
   };
 
   return (
-    <div>
-      <button className="w3-button" onClick={handleOpenModal}>+</button>
+    <div className="ModalWrapper">
+      <button className="w3-button" onClick={handleOpenModal}>New button</button>
       {showModal && <UploadModal title="Create Button" onSubmit={handleCloseModal} onClose={handleCloseModal} refreshData={props.refreshData}/>}
     </div>
   );

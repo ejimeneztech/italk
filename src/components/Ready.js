@@ -28,8 +28,8 @@ export default function Ready(props) {
       <Textbox text={text} clear={clearButtonHandler} />
       <AudioPlayer source={audioSource} />
       <br></br>
-      <ModalWrapper refreshData={props.refreshData} />
-      <br></br>
+      
+
       <button onClick={() => setActiveCategory("aboutMe")}>About Me</button>
       <button onClick={() => setActiveCategory("neccessities")}>
         Neccessities
@@ -38,6 +38,8 @@ export default function Ready(props) {
         Activities
       </button>
       <br></br>
+      <br></br>
+      <ModalWrapper refreshData={props.refreshData} />
       <Container>
         {props.data[activeCategory].map((item) => (
           <ButtonReady
