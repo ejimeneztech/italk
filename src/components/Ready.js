@@ -4,6 +4,7 @@ import AudioPlayer from "./AudioPlayer";
 import Container from "./Container";
 import ButtonReady from "./ButtonReady";
 import ModalWrapper from "./ModalWrapper";
+import Filter from "./Filter";
 
 export default function Ready(props) {
   const [text, setText] = useState("");
@@ -22,21 +23,31 @@ export default function Ready(props) {
     setText("");
   };
 
+  const clickFilter1 = () => {
+    setActiveCategory("aboutMe");
+  };
+
+  const clickFilter2 = () => {
+    setActiveCategory("neccessities");
+  };
+
+  const clickFilter3 = () => {
+    setActiveCategory("activities");
+  };
+
   return (
     <div>
       <br></br>
       <Textbox text={text} clear={clearButtonHandler} />
       <AudioPlayer source={audioSource} />
       <br></br>
-      
 
-      <button onClick={() => setActiveCategory("aboutMe")}>About Me</button>
-      <button onClick={() => setActiveCategory("neccessities")}>
-        Neccessities
-      </button>
-      <button onClick={() => setActiveCategory("activities")}>
-        Activities
-      </button>
+      <Filter
+        click1={clickFilter1}
+        click2={clickFilter2}
+        click3={clickFilter3}
+      />
+
       <br></br>
       <br></br>
       <ModalWrapper refreshData={props.refreshData} />
