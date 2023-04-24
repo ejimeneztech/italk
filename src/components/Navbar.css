@@ -1,0 +1,27 @@
+/* Navbar.css */
+
+/* Navbar.css */
+
+.navbar {
+    background: linear-gradient(90deg, rgba(56,3,162,1) 0%, rgba(29,124,253,1) 50%, rgba(81,55,195,1) 100%);
+    padding: 16px;
+    box-shadow: 0px -2px 16px rgba(0, 0, 0, 0.2); /* Update the box shadow properties */
+  }
+  
+  .navbar-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .navbar-item {
+    margin-right: 16px;
+    cursor: pointer;
+    font-size: 18px; /* Update the font size */
+  }
+  
+  .navbar-item:last-child {
+    margin-right: 0;
+  }
+  
