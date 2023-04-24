@@ -19,6 +19,12 @@
   cursor: pointer;
     
   }
+
+  .myButton.active {
+    /* Add the desired styles for the active state */
+    background-color: blue;
+    color: white;
+  }
   
   .thumbnailImage {
     width: 50px; /* Adjust the size of the thumbnail image as needed */

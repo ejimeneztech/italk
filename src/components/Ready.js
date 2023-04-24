@@ -48,9 +48,8 @@ export default function Ready(props) {
         click3={clickFilter3}
       />
 
-      <br></br>
-      <br></br>
-      <ModalWrapper refreshData={props.refreshData} />
+      
+      
       <Container>
         {props.data[activeCategory].map((item) => (
           <ButtonReady
@@ -62,6 +61,9 @@ export default function Ready(props) {
           />
         ))}
       </Container>
+      <br></br>
+      <br></br>
+      <ModalWrapper refreshData={props.refreshData} />
     </div>
   );
 }

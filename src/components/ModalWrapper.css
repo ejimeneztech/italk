@@ -1,0 +1,23 @@
+.ModalWrapper button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007FFF;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    
+  }
+  
+  .ModalWrapper button:hover {
+    background-color: darkblue;
+  }
+  
+
+  @media (max-width: 767px) {
+    .ModalWrapper button {
+      padding: 10px 16px; /* Adjust padding to make the button slightly smaller */
+      font-size: 14px; /* Adjust font size to make the button text smaller */
+    }
+  }
