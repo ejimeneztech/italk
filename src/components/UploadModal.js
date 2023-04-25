@@ -167,7 +167,7 @@ export default function UploadModal(props) {
               onChange={handleFileSelect}
             />
           </div>
-          <button type="submit" onClick={HandleSubmit}>
+          <button className="submit" type="submit" onClick={HandleSubmit}>
             Submit
           </button>
         </div>

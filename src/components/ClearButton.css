@@ -1,8 +1,8 @@
 .gg-close {
     box-sizing: border-box;
     position: absolute;
-    top: 23px;
-    right: 80px;
+    top: 78px;
+    right: 650px;
     display: block;
     transform: scale(var(--ggs,1));
     width: 22px;
@@ -26,4 +26,11 @@
 }
 .gg-close::after {
     transform: rotate(-45deg)
+}
+
+@media (max-width: 768px) {
+    .gg-close {
+        top: 75px;
+        right: 50px;
+    }
 }

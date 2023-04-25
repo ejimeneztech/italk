@@ -22,8 +22,8 @@
 
   .myButton.active {
     /* Add the desired styles for the active state */
-    background-color: blue;
-    color: white;
+    background-color:#c0ff9b;
+    color: black;
   }
   
   .thumbnailImage {
