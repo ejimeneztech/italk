@@ -19,8 +19,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: white; /* Semi-transparent background */
-  width: 80%; /* Set the width of the modal container to 80% of the viewport */
+  background: linear-gradient(90deg, rgba(56,3,162,1) 0%, rgba(29,124,253,1) 50%, rgba(81,55,195,1) 100%);/* Semi-transparent background */
+  width: 40%; /* Set the width of the modal container to 80% of the viewport */
   height: 85%; /* Set the height of the modal container to 40% of the viewport */
   border-radius: 15px;
   z-index: 9999; /* Set a higher z-index value to ensure the modal is positioned on top of other elements */
@@ -50,8 +50,8 @@
   font-weight: bold;
   cursor: pointer;
   position: absolute; /* Update the position to absolute */
-  top: 10px; /* Adjust the top position to position the button at the top of the modal */
-  right: 10px; /* Adjust the right position to position the button at the right of the modal */
+  top: 70px; /* Adjust the top position to position the button at the top of the modal */
+  right: -120px; /* Adjust the right position to position the button at the right of the modal */
   border-radius: 50%; /* Make the button round */
   width: 30px; /* Set the width of the button */
   height: 30px; /* Set the height of the button */
@@ -61,7 +61,7 @@
 .submit {
   border: none;
   border-radius: 25px;
-  background-color: #007FFF;
+  background-color: green;
   color: white;
   font-size: 16px;
   padding: 12px 20px;
@@ -87,4 +87,14 @@
     box-shadow: none; /* Remove box shadow for smaller screens */
     /* Add any other styles specific to mobile screens here */
   }
+
+  .close-button {
+    top: 20px; /* Adjust the top position to position the button closer to the top of the modal */
+    right: -10px; /* Adjust the right position to position the button closer to the right of the modal */
+    width: 25px; /* Decrease the width of the button for smaller screens */
+    height: 25px; /* Decrease the height of the button for smaller screens */
+    font-size: 16px; /* Decrease the font size of the button for smaller screens */
+  }
+  
+
 }

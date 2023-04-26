@@ -22,7 +22,7 @@
 
   .myButton.active {
     /* Add the desired styles for the active state */
-    background-color:#c0ff9b;
+    background: radial-gradient(circle, rgba(219,231,236,1) 0%, rgba(14,196,84,1) 100%);
     color: black;
   }
   

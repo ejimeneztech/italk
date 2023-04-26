@@ -6,7 +6,7 @@
   font-weight: bold;
   text-align: center;
   color: #fff;
-  background-color: #0080ff;
+  background: radial-gradient(circle, rgba(57,69,74,1) 0%, rgba(14,27,196,1) 100%);
   border-radius: 5px;
   cursor: pointer;
   user-select: none;
@@ -17,7 +17,7 @@
 
 
 .touch:active {
-  background-color: #bf00ff;
+  background: radial-gradient(circle, rgba(219,231,236,1) 0%, rgba(14,196,84,1) 100%);
   color: black;
 }
   
