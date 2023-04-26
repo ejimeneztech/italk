@@ -7,6 +7,7 @@
   height: 100vh;
   position: relative; /* Add relative position */
   /* backdrop-filter: blur(200px); */
+
 }
 
 .modal-container {
@@ -25,6 +26,7 @@
   border-radius: 15px;
   z-index: 9999; /* Set a higher z-index value to ensure the modal is positioned on top of other elements */
   border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .modal-container label {
@@ -71,7 +73,7 @@
 }
 
 .submit:hover {
-  background-color: #0055cc; /* Change hover background color */
+  background-color: #9bd673; /* Change hover background color */
 }
 
 

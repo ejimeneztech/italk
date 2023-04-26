@@ -5,8 +5,8 @@
   font-size: 16px;
   font-weight: bold;
   text-align: center;
-  color: #fff;
-  background: radial-gradient(circle, rgba(57,69,74,1) 0%, rgba(14,27,196,1) 100%);
+  color: black;
+  background: #F8F8FF;
   border-radius: 5px;
   cursor: pointer;
   user-select: none;
