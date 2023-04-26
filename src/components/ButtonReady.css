@@ -6,7 +6,7 @@
   font-weight: bold;
   text-align: center;
   color: #fff;
-  background-color: rgba(65, 105, 225, 0.5);;
+  background-color: #0080ff;
   border-radius: 5px;
   cursor: pointer;
   user-select: none;
@@ -15,13 +15,9 @@
 }
 
 
-.touch:hover {
-  background-color: #7FFFD4;
-  color: black;
-}
 
 .touch:active {
-  background-color: #7FFFD4;
+  background-color: #bf00ff;
   color: black;
 }
   
