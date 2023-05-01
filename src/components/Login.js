@@ -30,20 +30,23 @@ export default function Login() {
         console.log("Authentication successful", result);
         // Redirect to authenticated page
         // e.g., window.location.href = '/dashboard';
-        window.location.href = '/Home';
-
+        window.location.href = "/Home";
       },
       onFailure: (err) => {
         console.error("Authentication failed", err);
         setErrorMessage("Login failed. Please check your email and password.");
       },
       newPasswordRequired: (userAttributes, requiredAttributes) => {
-        console.log("New password required", userAttributes, requiredAttributes);
-        const filteredAttributes = requiredAttributes.filter(attr => {
+        console.log(
+          "New password required",
+          userAttributes,
+          requiredAttributes
+        );
+        const filteredAttributes = requiredAttributes.filter((attr) => {
           return userAttributes[attr].writable;
         });
         setRequiresNewPassword(true);
-        
+
         console.log(newPassword);
         cognitoUser.completeNewPasswordChallenge(
           {
@@ -62,7 +65,6 @@ export default function Login() {
             },
           }
         );
-        
       },
     });
   };
@@ -93,7 +95,9 @@ export default function Login() {
       )}
       <button onClick={handleLogin}>Login</button>
       {!requiresNewPassword && (
-        <button onClick={() => setRequiresNewPassword(true)}>Forgot password?</button>
+        <button onClick={() => setRequiresNewPassword(true)}>
+          Forgot password?
+        </button>
       )}
     </div>
   );
