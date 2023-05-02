@@ -1,7 +1,7 @@
 .gg-close {
     box-sizing: border-box;
     position: absolute;
-    top: 78px;
+    top: 94px;
     right: 650px;
     display: block;
     transform: scale(var(--ggs,1));
@@ -30,7 +30,7 @@
 
 @media (max-width: 768px) {
     .gg-close {
-        top: 75px;
+        top: 90px;
         right: 50px;
     }
 }
