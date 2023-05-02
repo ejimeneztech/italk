@@ -5,6 +5,7 @@ import {
   CognitoUserAttribute,
 } from "amazon-cognito-identity-js";
 import { userPool } from "./aws-config";
+import './Login.css';
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -70,16 +71,18 @@ export default function Login() {
   };
 
   return (
-    <div>
+    <div className="login-container">
       <h1>Login</h1>
       {errorMessage && <p>{errorMessage}</p>}
       <input
+        className="login-input"
         type="email"
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
       <input
+        className="login-input"
         type="password"
         placeholder="Password"
         value={password}
@@ -87,18 +90,15 @@ export default function Login() {
       />
       {requiresNewPassword && (
         <input
+          className="login-input"
           type="password"
           placeholder="New password"
           value={newPassword}
           onChange={(e) => setNewPassword(e.target.value)}
         />
       )}
-      <button onClick={handleLogin}>Login</button>
-      {!requiresNewPassword && (
-        <button onClick={() => setRequiresNewPassword(true)}>
-          Forgot password?
-        </button>
-      )}
+      <button className="login-button" onClick={handleLogin}>Login</button>
+     
     </div>
   );
 }
