@@ -32,6 +32,7 @@ export default function Login() {
         // Redirect to authenticated page
         // e.g., window.location.href = '/dashboard';
         window.location.href = "/Home";
+        // localStorage.setItem("isAuthenticated", true);
       },
       onFailure: (err) => {
         console.error("Authentication failed", err);
