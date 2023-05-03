@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import { CognitoUser, AuthenticationDetails } from "amazon-cognito-identity-js";
 import { userPool } from "./aws-config";
 import "./Login.css";
