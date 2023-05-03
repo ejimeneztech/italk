@@ -7,7 +7,7 @@ export default function Logout() {
     if (cognitoUser) {
       cognitoUser.signOut();
 
-      window.location.href = "/login";
+      window.location.href = "/";
     }
   };
 

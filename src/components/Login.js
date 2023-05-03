@@ -1,18 +1,14 @@
 import React, { useState } from "react";
-import {
-  CognitoUser,
-  AuthenticationDetails,
-  CognitoUserAttribute,
-} from "amazon-cognito-identity-js";
+import { useNavigate } from "react-router-dom";
+import { CognitoUser, AuthenticationDetails } from "amazon-cognito-identity-js";
 import { userPool } from "./aws-config";
-import './Login.css';
+import "./Login.css";
 
-export default function Login() {
+export default function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [newPassword, setNewPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [requiresNewPassword, setRequiresNewPassword] = useState(false);
+  const navigate = useNavigate();
 
   const handleLogin = () => {
     const authenticationData = {
@@ -29,44 +25,12 @@ export default function Login() {
     cognitoUser.authenticateUser(authenticationDetails, {
       onSuccess: (result) => {
         console.log("Authentication successful", result);
-        // Redirect to authenticated page
-        // e.g., window.location.href = '/dashboard';
-        window.location.href = "/Home";
-        // localStorage.setItem("isAuthenticated", true);
+        navigate("/Home");
+        props.onLoginSuccess();
       },
       onFailure: (err) => {
         console.error("Authentication failed", err);
         setErrorMessage("Login failed. Please check your email and password.");
-      },
-      newPasswordRequired: (userAttributes, requiredAttributes) => {
-        console.log(
-          "New password required",
-          userAttributes,
-          requiredAttributes
-        );
-        const filteredAttributes = requiredAttributes.filter((attr) => {
-          return userAttributes[attr].writable;
-        });
-        setRequiresNewPassword(true);
-
-        console.log(newPassword);
-        cognitoUser.completeNewPasswordChallenge(
-          {
-            Password: newPassword,
-          },
-          filteredAttributes,
-          {
-            onSuccess: (result) => {
-              console.log("New password set successfully", result);
-              // Redirect to authenticated page
-              // e.g., window.location.href = '/dashboard';
-            },
-            onFailure: (err) => {
-              console.error("New password set failed", err);
-              setErrorMessage("New password set failed. Please try again.");
-            },
-          }
-        );
       },
     });
   };
@@ -89,17 +53,9 @@ export default function Login() {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      {requiresNewPassword && (
-        <input
-          className="login-input"
-          type="password"
-          placeholder="New password"
-          value={newPassword}
-          onChange={(e) => setNewPassword(e.target.value)}
-        />
-      )}
-      <button className="login-button" onClick={handleLogin}>Login</button>
-     
+      <button className="login-button" onClick={handleLogin}>
+        Login
+      </button>
     </div>
   );
 }

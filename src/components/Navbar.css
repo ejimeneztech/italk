@@ -34,3 +34,26 @@
 .image-item {
   margin-left: auto;
 }
+
+.dropdown {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  z-index: 1;
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 5px;
+  box-shadow: 0px 8px 16px 
+}
+
+.dropdown button {
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 5px 0;
+}
+
+.dropdown button:hover {
+  text-decoration: underline;
+}
