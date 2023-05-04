@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Ready from "../components/Ready";
+import NotReady from "../components/NotReady";
 
 export default function Home() {
   const [data, setData] = useState(null);
@@ -19,5 +20,5 @@ export default function Home() {
       getData();
     }, []);
 
-  return !data ? "Loading" : <Ready data={data} refreshData = {getData}/>;
+  return !data ? <NotReady /> : <Ready data={data} refreshData = {getData}/>;
 }
