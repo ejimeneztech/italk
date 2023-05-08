@@ -1,12 +1,16 @@
-# Getting Started with Create React App
+# AAC App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is an augmentative and alternative communication app built in React. It uses the AWS Polly service to convert text to speech. It is hosted on AWS and uses S3 for file storage. AWS Lambda and API Gateway are used to create functions triggered by API calls. DynamoDB is used to store data, and Cognito is used for authentication.
 
-## Available Scripts
+## Getting Started
 
-In the project directory, you can run:
+To get started with this app, you will need to have an AWS account and configure your credentials. You will also need to install Node.js and the AWS CLI.
 
-### `npm start`
+Once you have the necessary tools installed, you can clone this repository and install the dependencies:
+
+       git clone https://github.com/your-username/aac-app.git
+       cd aac-app
+       npm install ```
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
