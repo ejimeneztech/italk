@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# AAC App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is an augmentative and alternative communication app built in React. It uses the AWS Polly service to convert text to speech. It is hosted on AWS and uses S3 for file storage. AWS Lambda and API Gateway are used to create functions triggered by API calls. DynamoDB is used to store data, and Cognito is used for authentication.
 
-## Available Scripts
+## Getting Started
 
-In the project directory, you can run:
+To get started with this app, you will need to have an AWS account and configure your credentials. You will also need to install Node.js and the AWS CLI.
 
-### `npm start`
+Once you have the necessary tools installed, you can clone this repository and install the dependencies:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+       git clone https://github.com/your-username/aac-app.git
+       cd aac-app
+       npm install 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+You will also need to set up your AWS resources, including the S3 bucket, Lambda functions, API Gateway, DynamoDB table, and Cognito user pool. You can use the AWS Console or the AWS CLI to create these resources.
 
-### `npm test`
+Once you have your resources set up, you will need to configure the app to use them. You can do this by creating a .env file in the root directory of the app and adding the necessary environment variables:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+       REACT_APP_AWS_REGION=your-aws-region
+       REACT_APP_AWS_S3_BUCKET=your-s3-bucket-name
+       REACT_APP_AWS_API_ENDPOINT=your-api-gateway-endpoint
+       REACT_APP_AWS_USER_POOL_ID=your-cognito-user-pool-id
+       REACT_APP_AWS_USER_POOL_CLIENT_ID=your-cognito-user-pool-client-id
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Finally, you can start the app with the following command:
+       
+       npm start
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Deploying to AWS
+To deploy the app to AWS, you will need to build the app and upload the files to S3. You can do this with the following commands:
 
-### `npm run eject`
+       npm run build
+       aws s3 sync build/ s3://your-s3-bucket-name
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contributing
+If you would like to contribute to this project, please fork the repository and submit a pull request.
