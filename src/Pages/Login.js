@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CognitoUser, AuthenticationDetails } from "amazon-cognito-identity-js";
-import { userPool } from "./aws-config";
+import { userPool } from "../components/aws-config";
 import "./Login.css";
 
 export default function Login(props) {

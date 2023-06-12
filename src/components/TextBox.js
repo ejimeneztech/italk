@@ -1,6 +1,6 @@
 import React from "react";
 import "./TextBox.css";
-import ClearButton from "./ClearButton";
+import ClearButton from "./Buttons/ClearButton";
 
 export default function Textbox(props) {
   const hasText = props.text;

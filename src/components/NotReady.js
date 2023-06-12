@@ -2,7 +2,7 @@ import React from "react";
 import Textbox from "./TextBox";
 import Container from "./Container";
 import Filter from "./Filter";
-import ButtonLoading from "./ButtonLoading";
+import ButtonLoading from "./Buttons/ButtonLoading";
 
 export default function Ready() {
   return (

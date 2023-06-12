@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Textbox from "./TextBox";
 import AudioPlayer from "./AudioPlayer";
 import Container from "./Container";
-import ButtonReady from "./ButtonReady";
+import ButtonReady from "./Buttons/ButtonReady";
 import ModalWrapper from "./ModalWrapper";
 import Filter from "./Filter";
 

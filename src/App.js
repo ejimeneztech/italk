@@ -4,8 +4,8 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-import Login from "./components/Login";
-import SignUp from "./components/SignUp";
+import Login from "./Pages/Login";
+
 
 function App() {
   //create state to share with Login and Navbar
@@ -24,8 +24,7 @@ function App() {
     <div className="App">
       <Navbar isLoggedIn={isAuthenticated} />
       <Routes>
-        <Route path="/" element={<Login onLoginSuccess={handleLogin} />} />
-        <Route path="/SignUp" element={<SignUp />} />
+        <Route path="/" element={<Login onLoginSuccess={handleLogin}/>} />
         <Route path="/Home" element={<Home />} />
       </Routes>
       <Footer />

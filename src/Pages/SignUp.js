@@ -1,6 +1,8 @@
+// To use this page import and add the component in the app.js file
+
 import React, { useState } from 'react';
-import { CognitoUserPool, CognitoUserAttribute } from 'amazon-cognito-identity-js';
-import { userPool } from './aws-config';
+import { CognitoUserAttribute } from 'amazon-cognito-identity-js';
+import { userPool } from '../components/aws-config';
 
 const SignUp = () => {
   const [username, setUsername] = useState('');
